@@ -3,8 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const name = "Mridul Mahajan";
-  const element = <p>Greetings. {name}</p>
+  const element = (
+    <div>
+      <h1>Ticking Clock</h1>
+      <h3>It is {new Date().toLocaleTimeString()}.</h3>
+    </div>
+  )
   return (
     element
   );
