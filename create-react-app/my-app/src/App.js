@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const name = "Mridul Mahajan";
+  const element = <p>Greetings. {name}</p>
   return (
-    <h1>Hello React</h1>
+    element
   );
 }
 
