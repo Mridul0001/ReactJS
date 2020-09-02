@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Clock from './App';
+import Toggle from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Clock name="Mridul"/>
+    <Toggle />
   </React.StrictMode>,
   document.getElementById('root')
 );

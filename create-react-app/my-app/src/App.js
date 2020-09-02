@@ -2,31 +2,26 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class Clock extends React.Component{
+class Toggle extends React.Component{
   constructor(props){
     super(props);
-    this.state = {date: new Date()};
+    this.state = {isON: false};
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount(){
-    this.timerID = setInterval(() => {
-      this.tick();
-    }, 1000);
+
+  handleClick(){
+    this.setState(state => ({
+      isON: !state.isON
+    }));
   }
 
-  componentWillUnmount(){
-    clearInterval(this.timerID);
-  }
-
-  tick(){
-    this.setState({date: new Date()});
-  }
-
-  render(){
+  render() {
     return (
-      <h1>Time is {this.state.date.toLocaleTimeString()}.</h1>
+      <button onClick = {this.handleClick}>{this.state.isON ? 'ON' : 'OFF'}
+      </button>
     )
-  }
+  };
 }
 
 function App(props) {
@@ -40,4 +35,4 @@ function App(props) {
   );
 }
 
-export default Clock;
+export default Toggle;
