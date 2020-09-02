@@ -2,26 +2,68 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class Toggle extends React.Component{
+function Welcome(props){
+  return (
+    <h1>Welcome {props.name}!</h1>
+  );
+}
+
+function LoginButton(props){
+  return (
+    <button onClick={props.onClick}>Login</button>
+  );
+}
+
+function LogoutButton(props){
+  return (
+    <button onClick={props.onClick}>Logout</button>
+  );
+}
+
+function Delete(props){
+  return (
+    <button onClick={props.onClick}>Delete Everything</button>
+  );
+}
+
+class Display extends React.Component{
   constructor(props){
     super(props);
-    this.state = {isON: false};
-    this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleLoginClick = this.handleLogicClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.state = {isLoggedIn: false, isDeleted: false};
   }
 
-
-  handleClick(){
-    this.setState(state => ({
-      isON: !state.isON
-    }));
+  handleDelete(){
+    this.setState({isDeleted: true});
   }
 
-  render() {
+  handleLogicClick(){
+    this.setState({isLoggedIn: true});
+  }
+
+  handleLogoutClick(){
+    this.setState({isLoggedIn: false});
+  }
+
+  render(){
+    const isLoggedIn = this.state.isLoggedIn;
+    let button = isLoggedIn ?  <LogoutButton onClick={this.handleLogoutClick}/> : <LoginButton onClick={this.handleLoginClick}/>
+    let greet = isLoggedIn ? <Welcome name="Mridul" /> : <Welcome name="Guest" />
+    let del = <Delete onClick={this.handleDelete} />;
+    if(this.state.isDeleted){
+      return null;
+    }
+
     return (
-      <button onClick = {this.handleClick}>{this.state.isON ? 'ON' : 'OFF'}
-      </button>
-    )
-  };
+      <div>
+        {button}
+        {greet}
+        {del}
+      </div>
+    );
+  }
 }
 
 function App(props) {
@@ -35,4 +77,4 @@ function App(props) {
   );
 }
 
-export default Toggle;
+export default Display;
