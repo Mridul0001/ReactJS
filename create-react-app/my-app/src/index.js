@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-setInterval(()=>{ReactDOM.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App name="Mridul"/>
+    <App name="Pulkit"/>
+    <App name="Shray"/>
   </React.StrictMode>,
   document.getElementById('root')
-);}, 1000); 
+);
 
 
 // If you want your app to work offline and load faster, you can change

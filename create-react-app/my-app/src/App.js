@@ -2,11 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
   const element = (
     <div>
-      <h1>Ticking Clock</h1>
-      <h3>It is {new Date().toLocaleTimeString()}.</h3>
+      <h3>Hello! {props.name}</h3>
     </div>
   )
   return (
