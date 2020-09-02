@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Clock from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App name="Mridul"/>
-    <App name="Pulkit"/>
-    <App name="Shray"/>
+    <Clock name="Mridul"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
